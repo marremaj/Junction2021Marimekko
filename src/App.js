@@ -12,10 +12,10 @@ function App() {
       <img src="/marimekko.png" alt="logo" height="40px" />
       </div>
       <div className="nav">
-        <Link className="nav-link" to="/">Women</Link>
-        <span className="nav-link">Men</span>
-        <span className="nav-link">Children</span>
-        <span className="nav-link">Stuff</span>
+        <Link className="nav-link" to="/">Clothing</Link>
+        <span className="nav-link">Bag</span>
+        <span className="nav-link">Accessories</span>
+        <span className="nav-link">Home</span>
         <Link className="nav-link" to="/second">Pre-loved</Link>
         <Link className="nav-link" to="/form">Sell</Link>
       </div>
