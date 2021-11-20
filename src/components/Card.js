@@ -13,9 +13,9 @@ const Card = (props) => {
         <div
           style={{
             margin: "5px",
-            width: "24%",
-            width: "25%",
-            flex: "1 1 0px",
+            width: "23%",
+            boxSizing: 10,
+            paddingBottom: 50
           }}
         >
           <img
@@ -58,7 +58,7 @@ const Card = (props) => {
                     justifyContent: "space-between",
                     fontFamily: 'Avenir',
                     scrollPaddingRight: 10,
-                    fontSize: 9
+                    fontSize: 12
                 }}> {props.value}</div>
               
           </div>
