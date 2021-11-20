@@ -32,6 +32,7 @@ const SellingForm = () => {
       );
       setImage(image_list);
       setHiddenSuggestions(false);
+      setSuggestions(true)
     }
   };
 
@@ -45,6 +46,8 @@ const SellingForm = () => {
     setImage(null);
     setHiddenInfo(true);
     setHiddenSuggestions(true);
+    
+
   };
   return (
     <div>
@@ -157,7 +160,9 @@ const SellingForm = () => {
             <div style={{ border: "1px solid #cccccc" }}>
               <div
                 className="suggestion-card"
-                onClick={() => setHiddenInfo(false)}
+                onClick={() => {
+                  
+                  setHiddenInfo(false)}}
               >
                 <img src="/images/new1.jpeg" alt="item1" height="100px" />
                 <div>
