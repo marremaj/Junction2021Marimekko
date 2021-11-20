@@ -4,7 +4,6 @@ import "./App.css";
 import SecondHandShoppingView from "./components/2ndHandShoppingView";
 import NormalShoppingView from "./components/NormalShoppingView";
 import SellingForm from "./components/SellingForm";
-
 function App() {
   return (
     <Router>
