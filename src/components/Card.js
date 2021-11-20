@@ -1,5 +1,4 @@
 import React from 'react'
-import HoverImage from "react-hover-image";
 
 const images = [
     "/images/new1.jpeg",
