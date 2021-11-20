@@ -56,7 +56,32 @@
 
 .text-input {
   padding: 16px;
-  margin: 8px 0;
+  margin: 0 0 8px;
   border-radius: 2px;
   border: 1px solid #333333;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.file-input {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 100px 30%;
+  cursor: pointer;
+}
+
+.suggestion-card {
+  display: flex;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.suggestion-card:hover {
+  background: #eeeeee;
+}
+
+select {
+  width: 180px
 }
