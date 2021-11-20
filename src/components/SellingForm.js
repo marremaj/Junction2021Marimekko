@@ -63,8 +63,10 @@ const SellingForm = () => {
                 <input type="file" multiple onChange={onImageChange} />
                 Upload photos
               </label>
-              <br />
-              <input type="text" value={query} onChange={(e) => filterItems(e.target.value)}/>
+              <div style={{height: "30px"}}/>
+              <label className="label" style={{marginTop: "20px"}}>Find information by item name</label>
+            <br />
+              <input type="text" value={query} placeholder="Search By Name" className="text-input" onChange={(e) => filterItems(e.target.value)}/>
               <div hidden={query.length === 0} style={{position: "relative"}}>
                 <div className="autocomplete-container">
                 { items.map((item) => (
@@ -83,10 +85,7 @@ const SellingForm = () => {
           ) : (
             images.map((img) => (
                 <img src={img} key={img} alt="" height="100px" />
-                
-
             ))
-            
           )}
           <span style={{ cursor: "pointer" }} onClick={closeImages}>
                   x
@@ -120,7 +119,7 @@ const SellingForm = () => {
             <label className="label">Additional Notes</label>
             <br />
             <textarea
-              placeholder="Size"
+              placeholder="Additional notes..."
               className="text-input"
               rows="4"
               cols="60"
@@ -132,7 +131,7 @@ const SellingForm = () => {
             <ReactTooltip place="top" type="dark" effect="solid" html={true}/>
             <br />
             <textarea
-              placeholder="Size"
+              placeholder="What is your best story with this item?"
               className="text-input"
               rows="4"
               cols="60"

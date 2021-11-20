@@ -37,7 +37,10 @@ const Card = (props) => {
             <div className="nav-link" style={{position: "absolute", bottom:20, right:0, fontFamily: 'Avenir', fontSize: 15, lineHeight: 1.5 }}>Read more</div>
             </>
             : 
-            <img src={props.oldImage} alt="" width="100%"/>
+            <>
+                <img src={props.oldImage} alt="" width="100%"/>
+                <div className="fading" style={{position: "absolute", height: "135px",bottom: 0 , right: 0, left:0}}></div>
+            </>
         }
             </div>
             </div> 
