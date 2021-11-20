@@ -9,15 +9,16 @@ function App() {
   return (
     <Router>
     <div className="App">
-      <h1>Marimekko</h1>
-      <div>
-        <Link to="/">Women</Link>|
-        <a>Men</a>|
-        <a>Children</a>|
-        <a>Stuff</a>|
-        <Link to="/second">SecondHand</Link>|
-        <Link to="/form">Sell</Link>
-
+      <div className="top-header">
+      <img src="/marimekko.png" alt="logo" height="40px" />
+      </div>
+      <div className="nav">
+        <Link className="nav-link" to="/">Women</Link>
+        <span className="nav-link">Men</span>
+        <span className="nav-link">Children</span>
+        <span className="nav-link">Stuff</span>
+        <Link className="nav-link" to="/second">Pre-loved</Link>
+        <Link className="nav-link" to="/form">Sell</Link>
       </div>
       <Routes>
         <Route path="/" element={<NormalShoppingView />} />
