@@ -1,9 +1,15 @@
 import { useState } from "react";
+import Switch from "react-switch";
+import ReactTooltip from "react-tooltip";
 
 const SellingForm = () => {
   const [hiddenSuggestions, setHiddenSuggestions] = useState(true);
   const [hiddenInfo, setHiddenInfo] = useState(true);
   const [images, setImage] = useState(null);
+  const [checked, setChecked] = useState(false);
+  const handleChange = nextChecked => {
+    setChecked(nextChecked);
+  };
 
   const onImageChange = (event) => {
     console.log(event)
@@ -66,6 +72,24 @@ const SellingForm = () => {
               cols="60"
             />
           </div>
+          <div>
+            <label className="label">Share your story </label>
+            <a className="tooltip" data-tip="<b>Share your story with this item</b><br />Best stories get published on our social medias<br />and are rewarded with a gift card for your next<br />purchase from Marimekko!">?</a>
+            <ReactTooltip place="top" type="dark" effect="solid" html={true}/>
+            <br />
+            <textarea
+              placeholder="Size"
+              className="text-input"
+              rows="4"
+              cols="60"
+            />
+          </div>
+          <span className="label">Consent to having your story published on Instagram</span>
+          <Switch
+          onChange={handleChange}
+          checked={checked}
+          className="react-switch"
+        />
           <div>
             <button className="btn">Cancel</button>
             <button className="btn primary">Send</button>
