@@ -31,7 +31,7 @@ const Card = (props) => {
            
             <div style={{position: "absolute", bottom: 35, fontFamily: 'Avenir', fontSize: 15, lineHeight: 1.5 }}>"{props.text}"</div>
             <div className="fading" style={{position: "absolute", height: "100px",bottom: 35 , right: 0, left:0}}></div>
-            <div className="nav-link" style={{position: "absolute", bottom:20, right:0, fontFamily: 'Avenir', fontSize: 15, lineHeight: 1.5 }}>Read more</div>
+            <Link to="/item" className="nav-link" style={{position: "absolute", bottom:20, right:0, fontFamily: 'Avenir', fontSize: 15, lineHeight: 1.5 }}>Read more</Link>
             </>
             : 
             <>
