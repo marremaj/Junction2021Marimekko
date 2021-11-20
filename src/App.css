@@ -97,3 +97,18 @@ input[type="file"] {
 select {
   width: 180px
 }
+
+.autocomplete {
+  border: 1px solid black;
+  border-top: none;
+  cursor: pointer;
+  width: 150px;
+  background: white;
+  padding: 4px;
+}
+
+.autocomplete-container {
+  position: absolute;
+  top:0;
+
+}

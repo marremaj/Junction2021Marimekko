@@ -2,23 +2,49 @@ import { useState } from "react";
 import Switch from "react-switch";
 import ReactTooltip from "react-tooltip";
 
+const marimekkoItems = [
+  "Lakka Unikko - Hat",
+  "Lapinkuusip - Coat",
+  "Lyhythiha - Shirt",
+  "Lasten Lyhythiha - T-shirt",
+  "Lokki - Bathrobe"
+]
+
 const SellingForm = () => {
   const [hiddenSuggestions, setHiddenSuggestions] = useState(true);
   const [hiddenInfo, setHiddenInfo] = useState(true);
   const [images, setImage] = useState(null);
   const [checked, setChecked] = useState(false);
+  const [items, setItems] = useState(marimekkoItems);
+  const [query, setQuery] = useState("");
+  const [suggestions, setSuggestions] = useState(false)
+
   const handleChange = nextChecked => {
     setChecked(nextChecked);
   };
 
   const onImageChange = (event) => {
-    console.log(event)
+    console.log(event);
     if (event.target.files && event.target.files[0]) {
-      console.log(typeof Array.from(event.target.files))
-      const image_list = Array.from(event.target.files).map((file) => URL.createObjectURL(file))
+      console.log(typeof Array.from(event.target.files));
+      const image_list = Array.from(event.target.files).map((file) =>
+        URL.createObjectURL(file)
+      );
       setImage(image_list);
-      setHiddenSuggestions(false)
+      setHiddenSuggestions(false);
     }
+  };
+
+  const filterItems = (newquery) => {
+    console.log(marimekkoItems.filter((item) => item.toLowerCase().includes(query.toLowerCase())))
+    setQuery(newquery)
+    setItems(marimekkoItems.filter((item) => item.toLowerCase().includes(query.toLowerCase())))
+  }
+
+  const closeImages = () => {
+    setImage(null);
+    setHiddenInfo(true);
+    setHiddenSuggestions(true);
   };
   return (
     <div>
@@ -27,18 +53,41 @@ const SellingForm = () => {
         <div style={{ flex: "1" }}>
           {images === null ? (
             <>
+            
               <span className="label">Upload photos</span>
               <br />
               <label className="file-input">
                 <input type="file" multiple onChange={onImageChange} />
                 Upload photos
               </label>
+              <br />
+              <input type="text" value={query} onChange={(e) => filterItems(e.target.value)}/>
+              <div hidden={query.length === 0} style={{position: "relative"}}>
+                <div className="autocomplete-container">
+                { items.map((item) => (
+                  <div className="autocomplete" onClick={() => {
+                    setHiddenSuggestions(false)
+                    setSuggestions(false)
+                    setHiddenInfo(false)
+                    setQuery("")
+                  }}>{item}</div>
+                ))
+
+                }
+                </div>
+              </div>
             </>
           ) : (
             images.map((img) => (
-                <img src={img} alt="" height="100px" />
+                <img src={img} key={img} alt="" height="100px" />
+                
+
             ))
+            
           )}
+          <span style={{ cursor: "pointer" }} onClick={closeImages}>
+                  x
+                </span>
           <div>
             <label className="label">Condition</label>
             <br />
@@ -52,7 +101,9 @@ const SellingForm = () => {
             </select>
           </div>
           <div>
-            <label className="label">Price <span style={{color:"red"}}>*</span></label>
+            <label className="label">
+              Price <span style={{ color: "red" }}>*</span>
+            </label>
             <br />
             <input placeholder="Price" className="text-input" /> €
             <span className="label"> (Suggestion: 50 €)</span>
@@ -99,9 +150,15 @@ const SellingForm = () => {
           <div />
         ) : (
           <div style={{ flex: "1" }}>
+            <>
+            {suggestions ? 
+              <>
             Suggested items:
             <div style={{ border: "1px solid #cccccc" }}>
-              <div className="suggestion-card" onClick={() => setHiddenInfo(false)}>
+              <div
+                className="suggestion-card"
+                onClick={() => setHiddenInfo(false)}
+              >
                 <img src="/images/new1.jpeg" alt="item1" height="100px" />
                 <div>
                   <div>Mikko's Dress</div>
@@ -118,6 +175,9 @@ const SellingForm = () => {
                 </div>
               </div>
             </div>
+              </> : <img src="/images/new1.jpeg" alt="item1" height="200px" />
+            }
+            </>
             {hiddenInfo ? (
               <div />
             ) : (
