@@ -4,6 +4,7 @@ import "./App.css";
 import SecondHandShoppingView from "./components/2ndHandShoppingView";
 import NormalShoppingView from "./components/NormalShoppingView";
 import SellingForm from "./components/SellingForm";
+import SecondHandItemView from "./components/2ndHandItemView";
 function App() {
   return (
     <Router>
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<NormalShoppingView />} />
         <Route path="/second" element={<SecondHandShoppingView />} />
         <Route path="/form" element={<SellingForm />} />
+        <Route path="/item" element={<SecondHandItemView />}/>
       </Routes>
     </div>
     </Router>
