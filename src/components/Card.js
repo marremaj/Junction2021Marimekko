@@ -1,4 +1,5 @@
 import React from 'react'
+import HoverImage from "react-hover-image";
 
 const images = [
     "/images/new1.jpeg",
@@ -12,23 +13,45 @@ const Card = (props) => {
     return(
         <div
           style={{
-            margin: "5px",
             width: "23%",
             boxSizing: 10,
-            paddingBottom: 50
+            paddingBottom:50,
+            margin: 4
+           
           }}
         >
-          <img
-            src={props.image}
-            width="100%"
-          />
+            {props.image ? 
+        <img src={props.image} alt="" width="100%" />
+  :
+         <div className="image_hover" style={{overflow:"hidden"}}>
+          <img src={props.newImage} alt="" width="100%" />
+          <div className="overlay">
+            {props.text ?
+            <>
+            <div className="old_image">
+            <img src={props.oldImage} alt="" width="40%" style={{marginTop: "20px",  borderRadius: "3px"}} />
+            </div>
+           
+            <div style={{position: "absolute", bottom: 35, fontFamily: 'Avenir', fontSize: 15, lineHeight: 1.5 }}>"{props.text}"</div>
+            <div className="fading" style={{position: "absolute", height: "100px",bottom: 35 , right: 0, left:0}}></div>
+            <div className="nav-link" style={{position: "absolute", bottom:20, right:0, fontFamily: 'Avenir', fontSize: 15, lineHeight: 1.5 }}>Read more</div>
+            </>
+            : 
+            <img src={props.oldImage} alt="" width="100%"/>
+        }
+            </div>
+            </div> 
+
+}
           <div>
+              
               <div
               style={{
                   fontFamily: 'Avenir',
                   fontWeight: 15,
                   fontSize: 16,
-                  paddingLeft: 5
+                  paddingLeft: 5,
+                  marginTop: 8
               }}
               >{props.title}</div>
 
