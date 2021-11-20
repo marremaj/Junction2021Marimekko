@@ -1,3 +1,9 @@
+.productnav {
+  color: gray;
+  font-size: 13px;
+  padding-left: 10px;
+}
+
 .react-switch {
   vertical-align: middle;
   margin-left: 4px;
@@ -70,7 +76,7 @@
   padding: 16px;
   margin: 2px 0 30px;
   border-radius: 2px;
- 
+
 }
 
 input[type="file"] {
@@ -110,7 +116,7 @@ select {
   transition: .5s ease;
   background-color: white;
   background-color: #fefefe;
-  
+
 }
 
 .image_hover{
@@ -129,7 +135,7 @@ select {
   width: 100%;
   height: auto;
   margin: "5px",
-            
+
 }
 
 .old_image {
@@ -139,7 +145,7 @@ select {
   display: block;
   margin: 10px;
 
-  
+
 
 
 }
