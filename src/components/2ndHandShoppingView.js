@@ -1,12 +1,15 @@
 import Card from "./Card";
+import { useNavigate } from "react-router-dom";
+
 
 const SecondHandShoppingView = () => {
+  const navigate = useNavigate()
   return (
     <>
       <h1>Marimekko Preloved</h1>
       <div className="center-align">
         <button className="btn primary">Browse</button>
-        <button className="btn">Sell an item</button>
+        <button className="btn" onClick={() => navigate("/form")}>Sell an item</button>
       </div>
       <div>
     <h1

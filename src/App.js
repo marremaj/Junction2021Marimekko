@@ -17,7 +17,6 @@ function App() {
         <span className="nav-link">Accessories</span>
         <span className="nav-link">Home</span>
         <Link className="nav-link" to="/second">Pre-loved</Link>
-        <Link className="nav-link" to="/form">Sell</Link>
       </div>
       <Routes>
         <Route path="/" element={<NormalShoppingView />} />
